@@ -1,4 +1,6 @@
-out/
+# IntelliJ
+/out/
 .idea/
 *.iml
 *.iws
+
