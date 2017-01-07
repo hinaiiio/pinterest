@@ -99,38 +99,25 @@ public class accessPinterest {
 
         System.out.println(fortuneJson);
 
-        HoroscopeList jsonObject = JsonConverter.toObject(fortuneJson, HoroscopeList.class);
+//        HoroscopeList jsonObject = JsonConverter.toObject(fortuneJson, HoroscopeList.class);
 
-
-
-        //String jsonString = JsonConverter.toString(jsonObject);
-        System.out.println(jsonObject.getHoroscope().getDate().get(1).getSign());
-
-//        // Map⇒JSON文字列
-//        Map<String, JsonObject> jsonMap = new HashMap<String, JsonObject>();
+        // Map⇒JSON文字列
+//        Map<String, HoroscopeList> jsonMap = new HashMap<String, HoroscopeList>();
 //        jsonMap.put("key1", jsonObject);
 //
 //        String jsonString = JsonConverter.toString(jsonMap);
 //
 //        System.out.println("jsonString=" + jsonString);
-//
-//        // JSON文字列⇒Map
-//        Map<String, JsonObject> jsonMap2 = JsonConverter.toObject(jsonString,
-//                new TypeReference<Map<String, JsonObject>>() {
-//                });
-//
-//        for (Map.Entry<String, JsonObject> e : jsonMap2.entrySet()) {
-//            JsonObject jsonObject2 = e.getValue();
-//            System.out.println(jsonObject2.value);
-//            System.out.println(jsonObject2.string);
-//            for(String str : jsonObject2.list) {
-//                System.out.println(str);
-//            }
-//            for(Map.Entry<String, String> e2 : jsonObject2.map.entrySet()) {
-//                System.out.println(String.format("%s=%s", e2.getKey(),e2.getValue()));
-//            }
-//
-//        }
+
+        // JSON文字列⇒Map
+        Map<String, HoroscopeList> jsonMap2 = JsonConverter.toObject(fortuneJson,
+                new TypeReference<Map<String, HoroscopeList>>() {
+                });
+
+        for (Map.Entry<String, HoroscopeList> e : jsonMap2.entrySet()) {
+            HoroscopeList jsonObject2 = e.getValue();
+            System.out.println(jsonObject2);
+        }
 
 
 //        JsonDecode jsonDecode = new JsonDecode();
