@@ -1,3 +1,7 @@
+import com.fasterxml.jackson.core.JsonParseException;
+import com.fasterxml.jackson.core.type.TypeReference;
+import com.fasterxml.jackson.databind.JsonMappingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import sun.text.normalizer.UTF16;
 
 import java.io.BufferedReader;
@@ -9,27 +13,17 @@ import java.net.URL;
 import java.net.URLConnection;
 import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 /**
  * Created by hina on 2017/01/02.
  */
 public class accessPinterest {
-    public static void main(String[] args) {
-        String userID = "4868824896827835698";
-        String token = "AXgwptye3at4hgMENgey1atnxM_3FJXotQ4k0dpDrV-Ar0AtWgAAAAA";
-        String bordname = "hair";
-        String urlstring
-                = "https://api.pinterest.com/v1/boards/" + userID + "/" + bordname + "/pins/?access_token=" + token;
-//        = "https://api.pinterest.com/v1/me/pins/";
 
-//        accessPinterest pin = new accessPinterest();
-//        String result = pin.getUrl(urlstring);
-//        System.out.println(result);
-        String fortuneurl = "http://api.jugemkey.jp/api/horoscope/free/2017/01/01";
-        executeGet(fortuneurl);
 
-    }
-
+    private static ArrayList<String> json = new ArrayList<>();
     public String getUrl(String urlstring){
         try{
             URL url = new URL(urlstring);
@@ -51,8 +45,7 @@ public class accessPinterest {
         }
     }
 
-    private static void executeGet(String urlString) {
-        System.out.println("===== HTTP GET Start =====");
+    private static String executeGet(String urlString) {
         try {
 //            URL url = new URL("http://localhost:8080/get?param=value");
 
@@ -70,11 +63,13 @@ public class accessPinterest {
                         String line;
                         while ((line = reader.readLine()) != null) {
                             System.out.println(line);
+//                            json.add(line);
+                            return line;
+
                         }
                     }
                 }
-                System.out.println("flg");
-
+                return null;
             } finally {
                 if (connection != null) {
                     connection.disconnect();
@@ -82,8 +77,66 @@ public class accessPinterest {
             }
         } catch (IOException e) {
             e.printStackTrace();
+            return null;
         }
-
-        System.out.println("===== HTTP GET End =====");
     }
+
+    public static void main(String[] args) throws JsonParseException, JsonMappingException, IOException {
+        String userID = "4868824896827835698";
+        String token = "AXgwptye3at4hgMENgey1atnxM_3FJXotQ4k0dpDrV-Ar0AtWgAAAAA";
+        String bordname = "hair";
+        String urlstring
+                = "https://api.pinterest.com/v1/boards/" + userID + "/" + bordname + "/pins/?access_token=" + token;
+//        = "https://api.pinterest.com/v1/me/pins/";
+
+//        accessPinterest pin = new accessPinterest();
+//        String result = pin.getUrl(urlstring);
+//        System.out.println(result);
+        String date = "2017/01/01";
+        String fortuneUrl = "http://api.jugemkey.jp/api/horoscope/free/"+date;
+
+        String fortuneJson = executeGet(fortuneUrl);
+
+        System.out.println(fortuneJson);
+
+        HoroscopeList jsonObject = JsonConverter.toObject(fortuneJson, HoroscopeList.class);
+
+
+
+        //String jsonString = JsonConverter.toString(jsonObject);
+        System.out.println(jsonObject.getHoroscope().getDate().get(1).getSign());
+
+//        // Map⇒JSON文字列
+//        Map<String, JsonObject> jsonMap = new HashMap<String, JsonObject>();
+//        jsonMap.put("key1", jsonObject);
+//
+//        String jsonString = JsonConverter.toString(jsonMap);
+//
+//        System.out.println("jsonString=" + jsonString);
+//
+//        // JSON文字列⇒Map
+//        Map<String, JsonObject> jsonMap2 = JsonConverter.toObject(jsonString,
+//                new TypeReference<Map<String, JsonObject>>() {
+//                });
+//
+//        for (Map.Entry<String, JsonObject> e : jsonMap2.entrySet()) {
+//            JsonObject jsonObject2 = e.getValue();
+//            System.out.println(jsonObject2.value);
+//            System.out.println(jsonObject2.string);
+//            for(String str : jsonObject2.list) {
+//                System.out.println(str);
+//            }
+//            for(Map.Entry<String, String> e2 : jsonObject2.map.entrySet()) {
+//                System.out.println(String.format("%s=%s", e2.getKey(),e2.getValue()));
+//            }
+//
+//        }
+
+
+//        JsonDecode jsonDecode = new JsonDecode();
+//        jsonDecode.parse("sample.json");
+//        jsonDecode.parse("test.json");
+
+    }
+
 }
