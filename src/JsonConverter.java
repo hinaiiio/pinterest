@@ -1,13 +1,12 @@
 import com.fasterxml.jackson.core.JsonGenerationException;
 import com.fasterxml.jackson.core.JsonParseException;
 import com.fasterxml.jackson.core.type.TypeReference;
+import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.JsonMappingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 import java.io.IOException;
 import java.security.InvalidParameterException;
-import java.util.HashMap;
-import java.util.Map;
 
 /**
  * Created by hina on 2017/01/07.
@@ -15,7 +14,6 @@ import java.util.Map;
 public class JsonConverter {
 
     private static ObjectMapper mapper = new ObjectMapper();
-
 
     private JsonConverter() {
         // do nothing
@@ -43,9 +41,11 @@ public class JsonConverter {
     }
 
     public static <T> T toObject(String jsonString,
-                                 TypeReference<Map<String, HoroscopeList>> valueTypeRef) throws JsonParseException, JsonMappingException, IOException {
+                                 TypeReference<T> valueTypeRef) throws JsonParseException, JsonMappingException, IOException{
 
-        System.out.println("toObjectStart "+mapper);
+        //未知フィールドにも対応
+        mapper.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
+
         T object = null;
 
         if (jsonString == null) {

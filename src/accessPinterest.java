@@ -1,8 +1,6 @@
 import com.fasterxml.jackson.core.JsonParseException;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.JsonMappingException;
-import com.fasterxml.jackson.databind.ObjectMapper;
-import sun.text.normalizer.UTF16;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -13,17 +11,13 @@ import java.net.URL;
 import java.net.URLConnection;
 import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+
 
 /**
  * Created by hina on 2017/01/02.
  */
 public class accessPinterest {
 
-
-    private static ArrayList<String> json = new ArrayList<>();
     public String getUrl(String urlstring){
         try{
             URL url = new URL(urlstring);
@@ -63,9 +57,7 @@ public class accessPinterest {
                         String line;
                         while ((line = reader.readLine()) != null) {
                             System.out.println(line);
-//                            json.add(line);
                             return line;
-
                         }
                     }
                 }
@@ -98,30 +90,10 @@ public class accessPinterest {
         String fortuneJson = executeGet(fortuneUrl);
 
         System.out.println(fortuneJson);
+        HoroscopeList jsonObject = JsonConverter.toObject(fortuneJson, new TypeReference<HoroscopeList>() {
+        });
 
-//        HoroscopeList jsonObject = JsonConverter.toObject(fortuneJson, HoroscopeList.class);
-
-        // Map⇒JSON文字列
-//        Map<String, HoroscopeList> jsonMap = new HashMap<String, HoroscopeList>();
-//        jsonMap.put("key1", jsonObject);
-//
-//        String jsonString = JsonConverter.toString(jsonMap);
-//
-//        System.out.println("jsonString=" + jsonString);
-
-        // JSON文字列⇒Map
-        Map<String, HoroscopeList> jsonMap2 = JsonConverter.toObject(fortuneJson,
-                new TypeReference<Map<String, HoroscopeList>>() {
-                });
-
-        for (Map.Entry<String, HoroscopeList> e : jsonMap2.entrySet()) {
-            HoroscopeList jsonObject2 = e.getValue();
-            System.out.println(jsonObject2);
-        }
-
-//        JsonDecode jsonDecode = new JsonDecode();
-//        jsonDecode.parse("sample.json");
-//        jsonDecode.parse("test.json");
+        System.out.println(jsonObject.getHoroscope().getDate().get(1).getSign());
 
     }
 

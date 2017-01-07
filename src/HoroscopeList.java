@@ -1,90 +1,53 @@
-import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonTypeInfo;
-import com.sun.javafx.collections.MappingChange;
-import com.sun.tools.javac.util.List;
-
-import java.util.HashMap;
-import java.util.Map;
-
+import java.util.ArrayList;
 
 /**
  * Created by hina on 2017/01/05.
  */
 public class HoroscopeList {
-    private Map<String, Date> horoscope;
-
-    @JsonCreator
-    public HoroscopeList(@JsonProperty("horoscope") Map<String, Date> horoscope) {
-        this.horoscope = horoscope;
-    }
+    private Date horoscope;
 
     public HoroscopeList() {
     }
 
-    public Map<String, Date> getHoroscope() {
+    public Date getHoroscope() {
         return horoscope;
     }
 
-    public void setHoroscope(Map<String, Date> horoscope) {
+    public void setHoroscope(Date horoscope) {
         this.horoscope = horoscope;
     }
 
-    public class Date{
+    static public class Date{
+        private java.util.List<Horoscope> date = new ArrayList<Horoscope>();
 
-        @JsonProperty("2017/01/01")
-        private Map<String, List<Horoscope>> date;
-
-        @JsonCreator
-        public Date(Map<String, List<Horoscope>> date) {
+        public Date(@JsonProperty("2017/01/01") java.util.List<Horoscope> date) {
             this.date = date;
         }
 
         public Date() {
         }
 
-        @JsonProperty("2017/01/01")
-        public Map<String, List<Horoscope>> getDate() {
+        public java.util.List<Horoscope> getDate() {
             return date;
         }
 
-        public void setDate(Map<String, List<Horoscope>> date) {
+        public void setDate(java.util.List<Horoscope> date) {
             this.date = date;
         }
     }
 
-    public class Horoscope {
+    static public class Horoscope {
         private String content;
         private String item;
         private int money;
         private int total;
         private int job;
         private String color;
+        private int day;
         private int love;
         private int rank;
         private String sign;
-
-        @JsonCreator
-        public Horoscope(
-                @JsonProperty("content") String content,
-                @JsonProperty("item") String item,
-                @JsonProperty("money") int money,
-                @JsonProperty("total") int total,
-                @JsonProperty("job") int job,
-                @JsonProperty("color") String color,
-                @JsonProperty("love") int love,
-                @JsonProperty("rank") int rank,
-                @JsonProperty("sign") String sign) {
-            this.content = content;
-            this.item = item;
-            this.money = money;
-            this.total = total;
-            this.job = job;
-            this.color = color;
-            this.love = love;
-            this.rank = rank;
-            this.sign = sign;
-        }
 
         public Horoscope() {
         }
@@ -135,6 +98,14 @@ public class HoroscopeList {
 
         public void setColor(String color) {
             this.color = color;
+        }
+
+        public int getDay() {
+            return day;
+        }
+
+        public void setDay(int day) {
+            this.day = day;
         }
 
         public int getLove() {
