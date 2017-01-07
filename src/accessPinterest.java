@@ -119,7 +119,6 @@ public class accessPinterest {
             System.out.println(jsonObject2);
         }
 
-
 //        JsonDecode jsonDecode = new JsonDecode();
 //        jsonDecode.parse("sample.json");
 //        jsonDecode.parse("test.json");

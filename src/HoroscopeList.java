@@ -12,43 +12,43 @@ import java.util.Map;
  * Created by hina on 2017/01/05.
  */
 public class HoroscopeList {
-    private Map<String, Horoscopes> horoscope;
+    private Map<String, Date> horoscope;
 
     @JsonCreator
-    public HoroscopeList(@JsonProperty("horoscope") Map<String, Horoscopes> horoscope) {
+    public HoroscopeList(@JsonProperty("horoscope") Map<String, Date> horoscope) {
         this.horoscope = horoscope;
     }
 
     public HoroscopeList() {
     }
 
-    public Map<String, Horoscopes> getHoroscope() {
+    public Map<String, Date> getHoroscope() {
         return horoscope;
     }
 
-    public void setHoroscope(Map<String, Horoscopes> horoscope) {
+    public void setHoroscope(Map<String, Date> horoscope) {
         this.horoscope = horoscope;
     }
 
-    public class Horoscopes{
+    public class Date{
 
         @JsonProperty("2017/01/01")
-        private Map<String, Horoscope> date;
+        private Map<String, List<Horoscope>> date;
 
         @JsonCreator
-        public Horoscopes(@JsonProperty("2017/01/01") Map<String, Horoscope> date) {
+        public Date(Map<String, List<Horoscope>> date) {
             this.date = date;
         }
 
-        public Horoscopes() {
+        public Date() {
         }
 
         @JsonProperty("2017/01/01")
-        public Map<String, Horoscope> getDate() {
+        public Map<String, List<Horoscope>> getDate() {
             return date;
         }
 
-        public void setDate(Map<String, Horoscope> date) {
+        public void setDate(Map<String, List<Horoscope>> date) {
             this.date = date;
         }
     }

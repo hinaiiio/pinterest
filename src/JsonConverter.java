@@ -18,7 +18,7 @@ public class JsonConverter {
 
 
     private JsonConverter() {
-        // do nothing.
+        // do nothing
     }
 
     public static String toString(final Object object) throws JsonGenerationException, JsonMappingException,
@@ -45,6 +45,7 @@ public class JsonConverter {
     public static <T> T toObject(String jsonString,
                                  TypeReference<Map<String, HoroscopeList>> valueTypeRef) throws JsonParseException, JsonMappingException, IOException {
 
+        System.out.println("toObjectStart "+mapper);
         T object = null;
 
         if (jsonString == null) {
