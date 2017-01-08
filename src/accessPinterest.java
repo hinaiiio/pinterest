@@ -1,6 +1,7 @@
 import com.fasterxml.jackson.core.JsonParseException;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.JsonMappingException;
+import com.sun.tools.doclets.formats.html.SourceToHTMLConverter;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -10,7 +11,9 @@ import java.net.HttpURLConnection;
 import java.net.URL;
 import java.net.URLConnection;
 import java.nio.charset.StandardCharsets;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 
 
 /**
@@ -84,16 +87,25 @@ public class accessPinterest {
 //        accessPinterest pin = new accessPinterest();
 //        String result = pin.getUrl(urlstring);
 //        System.out.println(result);
-        String date = "2017/01/01";
-        String fortuneUrl = "http://api.jugemkey.jp/api/horoscope/free/"+date;
+        SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd");
+        String today = dateFormat.format(new Date());
+        System.out.println(today);
+        String fortuneUrl = "http://api.jugemkey.jp/api/horoscope/free/"+ today;
 
         String fortuneJson = executeGet(fortuneUrl);
 
+        fortuneJson = fortuneJson.replace(today, "dayInfo");
         System.out.println(fortuneJson);
         HoroscopeList jsonObject = JsonConverter.toObject(fortuneJson, new TypeReference<HoroscopeList>() {
         });
+        System.out.println(jsonObject.getHoroscope().getDayInfo().get(0).getContent());
 
-        System.out.println(jsonObject.getHoroscope().getDate().get(1).getSign());
+
+//        HoroscopeMap jsonObject = JsonConverter.toObject(fortuneJson, new TypeReference<HoroscopeMap>() {
+//        });
+//
+//        System.out.println(jsonObject.getHoroscope().get("2017/01/01").get(1).getColor());
+//        System.out.println(jsonObject.getHoroscope().get("2017/01/02").get(1).getColor());
 
     }
 
