@@ -1,6 +1,7 @@
 import com.fasterxml.jackson.core.JsonParseException;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.JsonMappingException;
+import com.sun.tools.doclets.formats.html.SourceToHTMLConverter;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -10,34 +11,15 @@ import java.net.HttpURLConnection;
 import java.net.URL;
 import java.net.URLConnection;
 import java.nio.charset.StandardCharsets;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 
 
 /**
  * Created by hina on 2017/01/02.
  */
-public class accessPinterest {
-
-    public String getUrl(String urlstring){
-        try{
-            URL url = new URL(urlstring);
-            URLConnection connection = url.openConnection();
-            connection.connect();
-            InputStream inputStream = connection.getInputStream();
-            InputStreamReader inputStreamReader = new InputStreamReader(inputStream, "UTF-8");
-            BufferedReader reader = new BufferedReader(inputStreamReader);
-
-            ArrayList<String> list= new ArrayList<>();
-            while (reader.readLine() != null){
-                list.add(reader.readLine());
-                System.out.println(reader.lines());
-            }
-            return list.get(1);
-        } catch (IOException e) {
-            System.out.println(e);
-            return null;
-        }
-    }
+public class WebFortune {
 
     private static String executeGet(String urlString) {
         try {
@@ -81,19 +63,21 @@ public class accessPinterest {
                 = "https://api.pinterest.com/v1/boards/" + userID + "/" + bordname + "/pins/?access_token=" + token;
 //        = "https://api.pinterest.com/v1/me/pins/";
 
-//        accessPinterest pin = new accessPinterest();
+//        WebFortune pin = new WebFortune();
 //        String result = pin.getUrl(urlstring);
 //        System.out.println(result);
-        String date = "2017/01/01";
-        String fortuneUrl = "http://api.jugemkey.jp/api/horoscope/free/"+date;
+        SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd");
+        String today = dateFormat.format(new Date());
+        System.out.println(today);
+        String fortuneUrl = "http://api.jugemkey.jp/api/horoscope/free/"+ today;
 
         String fortuneJson = executeGet(fortuneUrl);
 
+        fortuneJson = fortuneJson.replace(today, "dayInfo");
         System.out.println(fortuneJson);
         HoroscopeList jsonObject = JsonConverter.toObject(fortuneJson, new TypeReference<HoroscopeList>() {
         });
-
-        System.out.println(jsonObject.getHoroscope().getDate().get(1).getSign());
+        System.out.println(jsonObject.getHoroscope().getDayInfo().get(0).getContent());
 
     }
 

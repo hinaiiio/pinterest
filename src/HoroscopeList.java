@@ -1,5 +1,6 @@
 import com.fasterxml.jackson.annotation.JsonProperty;
 import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Created by hina on 2017/01/05.
@@ -19,21 +20,21 @@ public class HoroscopeList {
     }
 
     static public class Date{
-        private java.util.List<Horoscope> date = new ArrayList<Horoscope>();
+        private java.util.List<Horoscope> dayInfo = new ArrayList<Horoscope>();
 
-        public Date(@JsonProperty("2017/01/01") java.util.List<Horoscope> date) {
-            this.date = date;
+        public Date(/*@JsonProperty(dayInfo)*/ java.util.List<Horoscope> dayInfo) {
+            this.dayInfo = dayInfo;
         }
 
         public Date() {
         }
 
-        public java.util.List<Horoscope> getDate() {
-            return date;
+        public List<Horoscope> getDayInfo() {
+            return dayInfo;
         }
 
-        public void setDate(java.util.List<Horoscope> date) {
-            this.date = date;
+        public void setDayInfo(List<Horoscope> dayInfo) {
+            this.dayInfo = dayInfo;
         }
     }
 
