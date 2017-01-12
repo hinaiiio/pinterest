@@ -1,0 +1,145 @@
+{
+  "kind": "customsearch#search",
+  "url": {
+    "type": "application/json",
+    "template": "https://www.googleapis.com/customsearch/v1?q={searchTerms}&num={count?}&start={startIndex?}&lr={language?}&safe={safe?}&cx={cx?}&cref={cref?}&sort={sort?}&filter={filter?}&gl={gl?}&cr={cr?}&googlehost={googleHost?}&c2coff={disableCnTwTranslation?}&hq={hq?}&hl={hl?}&siteSearch={siteSearch?}&siteSearchFilter={siteSearchFilter?}&exactTerms={exactTerms?}&excludeTerms={excludeTerms?}&linkSite={linkSite?}&orTerms={orTerms?}&relatedSite={relatedSite?}&dateRestrict={dateRestrict?}&lowRange={lowRange?}&highRange={highRange?}&searchType={searchType}&fileType={fileType?}&rights={rights?}&imgSize={imgSize?}&imgType={imgType?}&imgColorType={imgColorType?}&imgDominantColor={imgDominantColor?}&alt=json"
+  },
+  "queries": {
+    "request": [
+      {
+        "title": "Google Custom Search - コーデ,赤",
+        "totalResults": "37000000",
+        "searchTerms": "コーデ,赤",
+        "count": 5,
+        "startIndex": 1,
+        "inputEncoding": "utf8",
+        "outputEncoding": "utf8",
+        "safe": "off",
+        "cx": "008054080017512746605:go5ve5appbm",
+        "searchType": "image"
+      }
+    ],
+    "nextPage": [
+      {
+        "title": "Google Custom Search - コーデ,赤",
+        "totalResults": "37000000",
+        "searchTerms": "コーデ,赤",
+        "count": 5,
+        "startIndex": 6,
+        "inputEncoding": "utf8",
+        "outputEncoding": "utf8",
+        "safe": "off",
+        "cx": "008054080017512746605:go5ve5appbm",
+        "searchType": "image"
+      }
+    ]
+  },
+  "context": {
+    "title": "Google"
+  },
+  "searchInformation": {
+    "searchTime": 0.38501,
+    "formattedSearchTime": "0.39",
+    "totalResults": "37000000",
+    "formattedTotalResults": "37,000,000"
+  },
+  "items": [
+    {
+      "kind": "customsearch#result",
+      "title": "秋冬に可愛く見せる最強コーデ♡「赤」を取り入れたファッション ...",
+      "htmlTitle": "秋冬に可愛く見せる最強\u003cb\u003eコーデ\u003c/b\u003e♡「\u003cb\u003e赤\u003c/b\u003e」を取り入れたファッション ...",
+      "link": "https://rr.img.naver.jp/mig?src=http%3A%2F%2Fimgcc.naver.jp%2Fkaze%2Fmission%2FUSER%2F20141218%2F44%2F4333804%2F26%2F500x667x0a5441f4c9bdacd7cf95aa25.jpg%2F300%2F600&twidth=300&theight=0&qlt=80&res_format=jpg&op=r",
+      "displayLink": "matome.naver.jp",
+      "snippet": "... 見せる最強コーデ♡「赤」を ...",
+      "htmlSnippet": "... 見せる最強\u003cb\u003eコーデ\u003c/b\u003e♡「\u003cb\u003e赤\u003c/b\u003e」を ...",
+      "mime": "image/",
+      "fileFormat": "Image Document",
+      "image": {
+        "contextLink": "https://matome.naver.jp/odai/2141888489165575101",
+        "height": 400,
+        "width": 300,
+        "byteSize": 25166,
+        "thumbnailLink": "https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcT4XzkFyuJRrg6UV1qjT1Jvvo0njvUeyMG-Atx87OksHG_Pkn-Bjd9lZbg",
+        "thumbnailHeight": 124,
+        "thumbnailWidth": 93
+      }
+    },
+    {
+      "kind": "customsearch#result",
+      "title": "2015年冬】寒くなると赤が着たくなる！クリスマス気分を先取りコーデ ...",
+      "htmlTitle": "2015年冬】寒くなると\u003cb\u003e赤\u003c/b\u003eが着たくなる！クリスマス気分を先取り\u003cb\u003eコーデ\u003c/b\u003e ...",
+      "link": "https://s3-ap-northeast-1.amazonaws.com/curet-storage-product/f2b68d78-57ae-4d0c-ab53-41242f927506.jpg",
+      "displayLink": "curet.jp",
+      "snippet": "【2015年冬】寒くなると赤が着 ...",
+      "htmlSnippet": "【2015年冬】寒くなると\u003cb\u003e赤\u003c/b\u003eが着 ...",
+      "mime": "image/jpeg",
+      "image": {
+        "contextLink": "http://curet.jp/article/7724",
+        "height": 726,
+        "width": 726,
+        "byteSize": 140608,
+        "thumbnailLink": "https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcTgSpS_2u6X03fnbmexYhp2McSwmZ94XdJZwckCrtbP2u1OroauwvtsNibi",
+        "thumbnailHeight": 141,
+        "thumbnailWidth": 141
+      }
+    },
+    {
+      "kind": "customsearch#result",
+      "title": "赤スカートでモテコーデ♡外さない着こなしコーデ集！-カウモ",
+      "htmlTitle": "\u003cb\u003e赤\u003c/b\u003eスカートでモテコーデ♡外さない着こなし\u003cb\u003eコーデ\u003c/b\u003e集！-カウモ",
+      "link": "https://cdn.kaumo.jp/element/cfe58538-92bf-4199-8bfd-11f427b944cb.jpg?w=360&h=500&t=resize&q=90",
+      "displayLink": "kaumo.jp",
+      "snippet": "ブラックニット",
+      "htmlSnippet": "ブラックニット",
+      "mime": "image/jpeg",
+      "image": {
+        "contextLink": "https://kaumo.jp/topic/52581",
+        "height": 480,
+        "width": 360,
+        "byteSize": 35453,
+        "thumbnailLink": "https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcQq-A-Zkr4FQv77fB2_wpV7aszBdb29cQaN3KKCdvHlQGUeiFTHthBsoU8",
+        "thumbnailHeight": 129,
+        "thumbnailWidth": 97
+      }
+    },
+    {
+      "kind": "customsearch#result",
+      "title": "バレンタインデーの着こなし例 かわいい赤コーディネート | 日常のお ...",
+      "htmlTitle": "バレンタインデーの着こなし例 かわいい\u003cb\u003e赤コーディネート\u003c/b\u003e | 日常のお ...",
+      "link": "http://www.oyakudachibook.com/wp-content/uploads/2014/01/44cf4d71bf948536b4369c35badd7391.png",
+      "displayLink": "www.oyakudachibook.com",
+      "snippet": "赤いコートとのコーデ",
+      "htmlSnippet": "\u003cb\u003e赤い\u003c/b\u003eコートとの\u003cb\u003eコーデ\u003c/b\u003e",
+      "mime": "image/png",
+      "fileFormat": "Image Document",
+      "image": {
+        "contextLink": "http://www.oyakudachibook.com/1062.html",
+        "height": 721,
+        "width": 383,
+        "byteSize": 433553,
+        "thumbnailLink": "https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcR_fjWzfdU8nKiW6Dq6zactVgAlwTs9X1_UaWWGC1T7klQ0v3mIal9Oi0c",
+        "thumbnailHeight": 140,
+        "thumbnailWidth": 74
+      }
+    },
+    {
+      "kind": "customsearch#result",
+      "title": "夏は赤がキテる♡上手に取り入れたら主役はあなた！赤コーデ4選 | 4MEEE",
+      "htmlTitle": "夏は\u003cb\u003e赤\u003c/b\u003eがキテる♡上手に取り入れたら主役はあなた！\u003cb\u003e赤コーデ\u003c/b\u003e4選 | 4MEEE",
+      "link": "https://4meee.s3.amazonaws.com/files/article/753093/large_753093_2.jpg?03210700",
+      "displayLink": "4meee.com",
+      "snippet": "... 赤と黒でカッコイイ女コーデ ...",
+      "htmlSnippet": "... \u003cb\u003e赤\u003c/b\u003eと黒でカッコイイ女\u003cb\u003eコーデ\u003c/b\u003e ...",
+      "mime": "image/jpeg",
+      "image": {
+        "contextLink": "https://4meee.com/articles/view/753093",
+        "height": 672,
+        "width": 500,
+        "byteSize": 168333,
+        "thumbnailLink": "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSzbTKcQwQmk9o2HIpjv97nOZ0FAWkSe8CWjG7pGszg3F8l9r4cfc0pqHXT",
+        "thumbnailHeight": 138,
+        "thumbnailWidth": 103
+      }
+    }
+  ]
+}

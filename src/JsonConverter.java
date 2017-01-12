@@ -5,6 +5,7 @@ import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.JsonMappingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
+import java.io.File;
 import java.io.IOException;
 import java.security.InvalidParameterException;
 
@@ -27,8 +28,10 @@ public class JsonConverter {
         return json;
     }
 
-    public static <T> T toObject(final String jsonString, final Class<T> clazz) throws JsonParseException,
+    public static <T> T toObject(final File jsonString, final TypeReference<GoogleImgList> clazz) throws JsonParseException,
             JsonMappingException, IOException {
+
+        mapper.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
 
         T object = null;
 

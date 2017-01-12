@@ -21,10 +21,11 @@ import java.util.Date;
  */
 public class WebFortune {
 
+    public WebFortune() {
+    }
+
     private static String executeGet(String urlString) {
         try {
-//            URL url = new URL("http://localhost:8080/get?param=value");
-
             URL url = new URL(urlString);
             HttpURLConnection connection = null;
 
@@ -38,7 +39,6 @@ public class WebFortune {
                          BufferedReader reader = new BufferedReader(isr)) {
                         String line;
                         while ((line = reader.readLine()) != null) {
-                            System.out.println(line);
                             return line;
                         }
                     }
@@ -55,30 +55,19 @@ public class WebFortune {
         }
     }
 
-    public static void main(String[] args) throws JsonParseException, JsonMappingException, IOException {
-        String userID = "4868824896827835698";
-        String token = "AXgwptye3at4hgMENgey1atnxM_3FJXotQ4k0dpDrV-Ar0AtWgAAAAA";
-        String bordname = "hair";
-        String urlstring
-                = "https://api.pinterest.com/v1/boards/" + userID + "/" + bordname + "/pins/?access_token=" + token;
-//        = "https://api.pinterest.com/v1/me/pins/";
+    public static HoroscopeList getFortune() throws IOException{
 
-//        WebFortune pin = new WebFortune();
-//        String result = pin.getUrl(urlstring);
-//        System.out.println(result);
         SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd");
         String today = dateFormat.format(new Date());
-        System.out.println(today);
         String fortuneUrl = "http://api.jugemkey.jp/api/horoscope/free/"+ today;
 
         String fortuneJson = executeGet(fortuneUrl);
 
         fortuneJson = fortuneJson.replace(today, "dayInfo");
-        System.out.println(fortuneJson);
         HoroscopeList jsonObject = JsonConverter.toObject(fortuneJson, new TypeReference<HoroscopeList>() {
         });
-        System.out.println(jsonObject.getHoroscope().getDayInfo().get(0).getContent());
 
+        return jsonObject;
     }
 
 }
